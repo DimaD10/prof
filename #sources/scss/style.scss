@@ -279,7 +279,10 @@
 .main {
     // .main__desk
     &__desk {
-        height: 100%;
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 50px);
+        overflow: hidden;
     }
 }
 .desk {
@@ -299,6 +302,9 @@
         grid-template-rows: auto 1fr;
 
         grid-template-areas: 'header header header' 'todo workflow tasks' 'todo workflow tasks';
+
+        flex-grow: 1;
+        //overflow-y: auto;
     }
 
     &__part {
@@ -328,13 +334,29 @@
 .desk-todo {
     grid-area: todo;
     width: 270px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
     // .desk-todo__header
     &__header {
         padding: 20px 24px 16px 24px;
         border-bottom: 1px solid #C8CDD0;
     }
     &__main {
-        padding: 18px 16px;
+        max-height: 100%;
+        flex: 1 1 auto;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            width: 5px;
+            background-color: rgba(26, 24, 47, 0.15);
+            border-radius: 5px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $red;
+            border-radius: 5px;
+        }
     }
 }
 .workflow {
@@ -348,8 +370,105 @@
     &__wrapper {
         padding: 20px;
     }
+}
 
-    // .desk-tasks__title
+
+.todo-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 16px;
+
+    min-height: 100%;
+    overflow: auto;
+
+    // .todo-steps__step
+    &__step {
+        transition: background-color ease-in-out $animSpeed, padding ease-in-out $animSpeed;
+        border-radius: 6px;
+        padding: 0px 8px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        
+        position: relative;
+
+        // .todo-steps__step_active
+        &_active {
+            padding: 7px 8px;
+            background: #F1F5F6;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #EFD7D9;
+            }
+
+            .todo-steps__title {
+                color: $black;
+            }
+
+            .todo-steps__num {
+                opacity: 1;
+                position: static;
+                transform: none;
+            }
+        }
+        // .todo-steps__step_current
+        &_current {
+            background-color: $red;
+            .todo-steps__title {
+                color: $white;
+            }
+
+            &:hover {
+                background-color: #9B3D45;
+            }
+
+            .todo-steps__num {
+                background-color: transparent;
+                border: 1px solid $white;
+            }
+        }
+        // .todo-steps__step_finished
+        &_finished {
+            .todo-steps__num {
+                opacity: 0;
+            }
+        }
+    }
+    // .todo-steps__title
     &__title {
+        transition: color ease-in-out $animSpeed;
+
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 143%;
+        color: #C8CDD0;
+        margin-right: auto;
+    }
+    // .todo-steps__num
+    &__num {
+        transition: opacity ease-in-out $animSpeed, background-color ease-in-out $animSpeed, border ease-in-out $animSpeed, color ease-in-out $animSpeed;
+
+        display: flex;
+        border: 1px solid transparent;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: $red;
+        color: $white;
+
+        font-weight: 400;
+        font-size: 14px;
+        margin-left: 8px;
+        flex-shrink: 0;
+
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
     }
 }

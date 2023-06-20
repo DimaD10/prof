@@ -89,8 +89,9 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
-  min-width: 1100px;
+  max-height: 100vh;
+  height: 100%;
+  overflow: visible;
 }
 
 body {
@@ -98,6 +99,12 @@ body {
   font-family: Inter;
   font-size: 14px;
   background-color: #F1F5F6;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
 }
 
 main {
@@ -436,7 +443,15 @@ h3 {
 }
 
 .main__desk {
-  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: calc(100vh - 50px);
+  overflow: hidden;
 }
 
 .desk__container {
@@ -456,6 +471,8 @@ h3 {
   -ms-grid-rows: auto 16px 1fr;
   grid-template-rows: auto 1fr;
       grid-template-areas: "header header header" "todo workflow tasks" "todo workflow tasks";
+  -ms-flex-positive: 1;
+      flex-grow: 1;
 }
 .desk__part {
   background: #fff;
@@ -496,13 +513,34 @@ h3 {
   -ms-grid-column: 1;
   grid-area: todo;
   width: 270px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .desk-todo__header {
   padding: 20px 24px 16px 24px;
   border-bottom: 1px solid #C8CDD0;
 }
 .desk-todo__main {
-  padding: 18px 16px;
+  max-height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  overflow: auto;
+}
+.desk-todo__main::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(26, 24, 47, 0.15);
+  border-radius: 5px;
+}
+.desk-todo__main::-webkit-scrollbar-thumb {
+  background: #C75E67;
+  border-radius: 5px;
 }
 
 .workflow {
@@ -522,4 +560,104 @@ h3 {
 }
 .desk-tasks__wrapper {
   padding: 20px;
+}
+
+.todo-steps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 6px;
+  padding: 18px 16px;
+  min-height: 100%;
+  overflow: auto;
+}
+.todo-steps__step {
+  -webkit-transition: background-color ease-in-out 0.2s, padding ease-in-out 0.2s;
+  transition: background-color ease-in-out 0.2s, padding ease-in-out 0.2s;
+  border-radius: 6px;
+  padding: 0px 8px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.todo-steps__step_active {
+  padding: 7px 8px;
+  background: #F1F5F6;
+  cursor: pointer;
+}
+.todo-steps__step_active:hover {
+  background-color: #EFD7D9;
+}
+.todo-steps__step_active .todo-steps__title {
+  color: #080809;
+}
+.todo-steps__step_active .todo-steps__num {
+  opacity: 1;
+  position: static;
+  -webkit-transform: none;
+          transform: none;
+}
+.todo-steps__step_current {
+  background-color: #C75E67;
+}
+.todo-steps__step_current .todo-steps__title {
+  color: #fff;
+}
+.todo-steps__step_current:hover {
+  background-color: #9B3D45;
+}
+.todo-steps__step_current .todo-steps__num {
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+.todo-steps__step_finished .todo-steps__num {
+  opacity: 0;
+}
+.todo-steps__title {
+  -webkit-transition: color ease-in-out 0.2s;
+  transition: color ease-in-out 0.2s;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 143%;
+  color: #C8CDD0;
+  margin-right: auto;
+}
+.todo-steps__num {
+  -webkit-transition: opacity ease-in-out 0.2s, background-color ease-in-out 0.2s, border ease-in-out 0.2s, color ease-in-out 0.2s;
+  transition: opacity ease-in-out 0.2s, background-color ease-in-out 0.2s, border ease-in-out 0.2s, color ease-in-out 0.2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid transparent;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #C75E67;
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+  margin-left: 8px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
