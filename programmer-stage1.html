@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="todo-steps__step todo-steps__step_active">
                                         <span class="todo-steps__title">Управляемые устройства</span>
-                                        <span class="todo-steps__num">8</span>
+                                        <span class="todo-steps__num" id="manage-counter">8</span>
                                     </div>
                                     <div class="todo-steps__step">
                                         <span class="todo-steps__title">Обнаружение устройств</span>
@@ -111,10 +111,249 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="workflow desk__part" data-aos="fade-up" data-aos-offset="20" data-aos-duration="800" data-aos-delay="150"></div>
+                        <div class="workflow desk__part" data-aos="fade-up" data-aos-offset="20" data-aos-duration="800" data-aos-delay="150">
+                            <div class="workflow__content">
+                                <div class="workflow__section-content safety-protocol">
+                                    <div class="safety-protocol__wrapper">
+                                        <div class="safety-protocol__icon">
+                                            <img src="./img/programmer/sp-mark.svg" alt="">
+                                        </div>
+                                        <h2 class="workflow__title">
+                                            Протокол безопасности
+                                        </h2>
+                                        <div class="safety-report">
+                                            <div class="safety-report__field safety-report__field_state">
+                                                <h4 class="safety-report__title">Состояние сети:</h4>
+                                                <span class="safety-report__report safety-report__report_warn">[ под <span class="report-bad">угрозой</span> <span class="report-good">защитой</span> ]</span>
+                                            </div>
+                                            <div class="safety-report__field safety-report__field_devices">
+                                                <h4 class="safety-report__title">Устройства в сети:</h4>
+                                                <span class="safety-report__report"><span>[ <span class="devices-counter">0</span> ]</span> устройств</span>
+                                            </div>
+                                        </div>
+                                        <button class="safety-protocol__button button button_active" data-step="finish">Установить защиту</button>
+                                    </div>
+                                </div>
+                                <div class="workflow__section-content devices-manage">
+                                    <div class="devices-manage__wrapper">
+                                        <h2 class="workflow__title">
+                                            Управляемые устройства
+                                        </h2>
+                                        <div class="safety-report">
+                                            <div class="safety-report__field safety-report__field_state">
+                                                <h4 class="safety-report__title">Рабочие станции:</h4>
+                                                <span class="safety-report__report"><span>[ <span class="devices-counter">0</span> ] станций</span></span>
+                                            </div>
+                                            <div class="safety-report__field safety-report__field_devices">
+                                                <h4 class="safety-report__title">программа безопасности активна:</h4>
+                                                <span class="safety-report__report safety-manage safety-report__report_warn"><span>[ <span class="devices-manage__safe-devices">1</span> / <span class="devices-counter">0</span> ]</span> станций</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="devices-manage__devices">
+                                            <div class="device-manage">
+                                                <div class="device-manage__preview">
+                                                    <div class="device-manage__preview-content">
+                                                        <svg class="device-icon" width="68" height="56" viewBox="0 0 68 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M62.7419 50.2059H55.4375L58.0838 52.838C59.0747 53.8236 58.3672 55.5 56.9784 55.5H11.0216C9.63277 55.5 8.92535 53.8236 9.91625 52.838L12.5625 50.2059H5.25806C2.63279 50.2059 0.5 48.0883 0.5 45.4706V5.23529C0.5 2.61754 2.63279 0.5 5.25806 0.5H62.7419C65.3672 0.5 67.5 2.61754 67.5 5.23529V45.4706C67.5 48.0883 65.3672 50.2059 62.7419 50.2059ZM5.25806 2.55882H62.7419C64.2321 2.55882 65.4355 3.75964 65.4355 5.23529V45.4706C65.4355 46.9462 64.2321 48.1471 62.7419 48.1471H5.25806C3.76793 48.1471 2.56452 46.9462 2.56452 45.4706V5.23529C2.56452 3.75964 3.76793 2.55882 5.25806 2.55882ZM14.6969 50.9908C15.2018 50.4885 15.8872 50.2059 16.6025 50.2059H51.3976C52.1128 50.2059 52.7982 50.4885 53.3031 50.9908L55.7667 53.4412H12.2333L14.6969 50.9908Z" fill="#75797B"/>
+                                                        </svg>
+
+                                                        <div class="device-manage__label">
+                                                            <div class="device-manage__status">
+                                                                <img src="./img/icons/cross.svg" alt="" class="cross">
+                                                                <img src="./img/icons/bird.svg" alt="" class="bird">                                                                                                                         
+                                                            </div>
+                                                            <span class="device-manage__num">№0752</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="device-manage__body">
+                                                    <h4 class="device-manage__title">Отдел аналитики</h4>
+                                                    <button class="device-manage__active-btn">Активировать защиту</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="device-manage">
+                                                <div class="device-manage__preview">
+                                                    <div class="device-manage__preview-content">
+                                                        <svg class="device-icon" width="68" height="56" viewBox="0 0 68 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M62.7419 50.2059H55.4375L58.0838 52.838C59.0747 53.8236 58.3672 55.5 56.9784 55.5H11.0216C9.63277 55.5 8.92535 53.8236 9.91625 52.838L12.5625 50.2059H5.25806C2.63279 50.2059 0.5 48.0883 0.5 45.4706V5.23529C0.5 2.61754 2.63279 0.5 5.25806 0.5H62.7419C65.3672 0.5 67.5 2.61754 67.5 5.23529V45.4706C67.5 48.0883 65.3672 50.2059 62.7419 50.2059ZM5.25806 2.55882H62.7419C64.2321 2.55882 65.4355 3.75964 65.4355 5.23529V45.4706C65.4355 46.9462 64.2321 48.1471 62.7419 48.1471H5.25806C3.76793 48.1471 2.56452 46.9462 2.56452 45.4706V5.23529C2.56452 3.75964 3.76793 2.55882 5.25806 2.55882ZM14.6969 50.9908C15.2018 50.4885 15.8872 50.2059 16.6025 50.2059H51.3976C52.1128 50.2059 52.7982 50.4885 53.3031 50.9908L55.7667 53.4412H12.2333L14.6969 50.9908Z" fill="#75797B"/>
+                                                        </svg>
+
+                                                        <div class="device-manage__label">
+                                                            <div class="device-manage__status">
+                                                                <img src="./img/icons/cross.svg" alt="" class="cross">
+                                                                <img src="./img/icons/bird.svg" alt="" class="bird">                                                                                                                         
+                                                            </div>
+                                                            <span class="device-manage__num">№1201</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="device-manage__body">
+                                                    <h4 class="device-manage__title">Отдел маркетинга</h4>
+                                                    <button class="device-manage__active-btn">Активировать защиту</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="device-manage">
+                                                <div class="device-manage__preview">
+                                                    <div class="device-manage__preview-content">
+                                                        <svg class="device-icon" width="68" height="56" viewBox="0 0 68 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M62.7419 50.2059H55.4375L58.0838 52.838C59.0747 53.8236 58.3672 55.5 56.9784 55.5H11.0216C9.63277 55.5 8.92535 53.8236 9.91625 52.838L12.5625 50.2059H5.25806C2.63279 50.2059 0.5 48.0883 0.5 45.4706V5.23529C0.5 2.61754 2.63279 0.5 5.25806 0.5H62.7419C65.3672 0.5 67.5 2.61754 67.5 5.23529V45.4706C67.5 48.0883 65.3672 50.2059 62.7419 50.2059ZM5.25806 2.55882H62.7419C64.2321 2.55882 65.4355 3.75964 65.4355 5.23529V45.4706C65.4355 46.9462 64.2321 48.1471 62.7419 48.1471H5.25806C3.76793 48.1471 2.56452 46.9462 2.56452 45.4706V5.23529C2.56452 3.75964 3.76793 2.55882 5.25806 2.55882ZM14.6969 50.9908C15.2018 50.4885 15.8872 50.2059 16.6025 50.2059H51.3976C52.1128 50.2059 52.7982 50.4885 53.3031 50.9908L55.7667 53.4412H12.2333L14.6969 50.9908Z" fill="#75797B"/>
+                                                        </svg>
+
+                                                        <div class="device-manage__label">
+                                                            <div class="device-manage__status">
+                                                                <img src="./img/icons/cross.svg" alt="" class="cross">
+                                                                <img src="./img/icons/bird.svg" alt="" class="bird">                                                                                                                         
+                                                            </div>
+                                                            <span class="device-manage__num">№0105</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="device-manage__body">
+                                                    <h4 class="device-manage__title">Серверная</h4>
+                                                    <button class="device-manage__active-btn">Активировать защиту</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="device-manage">
+                                                <div class="device-manage__preview">
+                                                    <div class="device-manage__preview-content">
+                                                        <svg class="device-icon" width="68" height="56" viewBox="0 0 68 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M62.7419 50.2059H55.4375L58.0838 52.838C59.0747 53.8236 58.3672 55.5 56.9784 55.5H11.0216C9.63277 55.5 8.92535 53.8236 9.91625 52.838L12.5625 50.2059H5.25806C2.63279 50.2059 0.5 48.0883 0.5 45.4706V5.23529C0.5 2.61754 2.63279 0.5 5.25806 0.5H62.7419C65.3672 0.5 67.5 2.61754 67.5 5.23529V45.4706C67.5 48.0883 65.3672 50.2059 62.7419 50.2059ZM5.25806 2.55882H62.7419C64.2321 2.55882 65.4355 3.75964 65.4355 5.23529V45.4706C65.4355 46.9462 64.2321 48.1471 62.7419 48.1471H5.25806C3.76793 48.1471 2.56452 46.9462 2.56452 45.4706V5.23529C2.56452 3.75964 3.76793 2.55882 5.25806 2.55882ZM14.6969 50.9908C15.2018 50.4885 15.8872 50.2059 16.6025 50.2059H51.3976C52.1128 50.2059 52.7982 50.4885 53.3031 50.9908L55.7667 53.4412H12.2333L14.6969 50.9908Z" fill="#75797B"/>
+                                                        </svg>
+
+                                                        <div class="device-manage__label">
+                                                            <div class="device-manage__status">
+                                                                <img src="./img/icons/cross.svg" alt="" class="cross">
+                                                                <img src="./img/icons/bird.svg" alt="" class="bird">                                                                                                                         
+                                                            </div>
+                                                            <span class="device-manage__num">№2040</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="device-manage__body">
+                                                    <h4 class="device-manage__title">Стажер</h4>
+                                                    <button class="device-manage__active-btn">Активировать защиту</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="device-manage" id="controled-by-protocol">
+                                                <div class="device-manage__preview">
+                                                    <div class="device-manage__preview-content">
+                                                        <svg class="device-icon" width="68" height="56" viewBox="0 0 68 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M62.7419 50.2059H55.4375L58.0838 52.838C59.0747 53.8236 58.3672 55.5 56.9784 55.5H11.0216C9.63277 55.5 8.92535 53.8236 9.91625 52.838L12.5625 50.2059H5.25806C2.63279 50.2059 0.5 48.0883 0.5 45.4706V5.23529C0.5 2.61754 2.63279 0.5 5.25806 0.5H62.7419C65.3672 0.5 67.5 2.61754 67.5 5.23529V45.4706C67.5 48.0883 65.3672 50.2059 62.7419 50.2059ZM5.25806 2.55882H62.7419C64.2321 2.55882 65.4355 3.75964 65.4355 5.23529V45.4706C65.4355 46.9462 64.2321 48.1471 62.7419 48.1471H5.25806C3.76793 48.1471 2.56452 46.9462 2.56452 45.4706V5.23529C2.56452 3.75964 3.76793 2.55882 5.25806 2.55882ZM14.6969 50.9908C15.2018 50.4885 15.8872 50.2059 16.6025 50.2059H51.3976C52.1128 50.2059 52.7982 50.4885 53.3031 50.9908L55.7667 53.4412H12.2333L14.6969 50.9908Z" fill="#75797B"/>
+                                                        </svg>
+
+                                                        <div class="device-manage__label">
+                                                            <div class="device-manage__status">
+                                                                <img src="./img/icons/cross.svg" alt="" class="cross">
+                                                                <img src="./img/icons/bird.svg" alt="" class="bird">                                                                                                                         
+                                                            </div>
+                                                            <span class="device-manage__num">№1435</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="device-manage__body">
+                                                    <h4 class="device-manage__title">Техподдержка</h4>
+                                                    <button class="device-manage__active-btn">Активировать защиту</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="device-manage">
+                                                <div class="device-manage__preview">
+                                                    <div class="device-manage__preview-content">
+                                                        <svg class="device-icon" width="68" height="56" viewBox="0 0 68 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M62.7419 50.2059H55.4375L58.0838 52.838C59.0747 53.8236 58.3672 55.5 56.9784 55.5H11.0216C9.63277 55.5 8.92535 53.8236 9.91625 52.838L12.5625 50.2059H5.25806C2.63279 50.2059 0.5 48.0883 0.5 45.4706V5.23529C0.5 2.61754 2.63279 0.5 5.25806 0.5H62.7419C65.3672 0.5 67.5 2.61754 67.5 5.23529V45.4706C67.5 48.0883 65.3672 50.2059 62.7419 50.2059ZM5.25806 2.55882H62.7419C64.2321 2.55882 65.4355 3.75964 65.4355 5.23529V45.4706C65.4355 46.9462 64.2321 48.1471 62.7419 48.1471H5.25806C3.76793 48.1471 2.56452 46.9462 2.56452 45.4706V5.23529C2.56452 3.75964 3.76793 2.55882 5.25806 2.55882ZM14.6969 50.9908C15.2018 50.4885 15.8872 50.2059 16.6025 50.2059H51.3976C52.1128 50.2059 52.7982 50.4885 53.3031 50.9908L55.7667 53.4412H12.2333L14.6969 50.9908Z" fill="#75797B"/>
+                                                        </svg>
+
+                                                        <div class="device-manage__label">
+                                                            <div class="device-manage__status">
+                                                                <img src="./img/icons/cross.svg" alt="" class="cross">
+                                                                <img src="./img/icons/bird.svg" alt="" class="bird">                                                                                                                         
+                                                            </div>
+                                                            <span class="device-manage__num">№1007</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="device-manage__body">
+                                                    <h4 class="device-manage__title">Техподдержка</h4>
+                                                    <button class="device-manage__active-btn">Активировать защиту</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="device-manage">
+                                                <div class="device-manage__preview">
+                                                    <div class="device-manage__preview-content">
+                                                        <svg class="device-icon" width="68" height="56" viewBox="0 0 68 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M62.7419 50.2059H55.4375L58.0838 52.838C59.0747 53.8236 58.3672 55.5 56.9784 55.5H11.0216C9.63277 55.5 8.92535 53.8236 9.91625 52.838L12.5625 50.2059H5.25806C2.63279 50.2059 0.5 48.0883 0.5 45.4706V5.23529C0.5 2.61754 2.63279 0.5 5.25806 0.5H62.7419C65.3672 0.5 67.5 2.61754 67.5 5.23529V45.4706C67.5 48.0883 65.3672 50.2059 62.7419 50.2059ZM5.25806 2.55882H62.7419C64.2321 2.55882 65.4355 3.75964 65.4355 5.23529V45.4706C65.4355 46.9462 64.2321 48.1471 62.7419 48.1471H5.25806C3.76793 48.1471 2.56452 46.9462 2.56452 45.4706V5.23529C2.56452 3.75964 3.76793 2.55882 5.25806 2.55882ZM14.6969 50.9908C15.2018 50.4885 15.8872 50.2059 16.6025 50.2059H51.3976C52.1128 50.2059 52.7982 50.4885 53.3031 50.9908L55.7667 53.4412H12.2333L14.6969 50.9908Z" fill="#75797B"/>
+                                                        </svg>
+
+                                                        <div class="device-manage__label">
+                                                            <div class="device-manage__status">
+                                                                <img src="./img/icons/cross.svg" alt="" class="cross">
+                                                                <img src="./img/icons/bird.svg" alt="" class="bird">                                                                                                                         
+                                                            </div>
+                                                            <span class="device-manage__num">№0031</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="device-manage__body">
+                                                    <h4 class="device-manage__title">Финансовый отдел</h4>
+                                                    <button class="device-manage__active-btn">Активировать защиту</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="device-manage">
+                                                <div class="device-manage__preview">
+                                                    <div class="device-manage__preview-content">
+                                                        <svg class="device-icon" width="68" height="56" viewBox="0 0 68 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M62.7419 50.2059H55.4375L58.0838 52.838C59.0747 53.8236 58.3672 55.5 56.9784 55.5H11.0216C9.63277 55.5 8.92535 53.8236 9.91625 52.838L12.5625 50.2059H5.25806C2.63279 50.2059 0.5 48.0883 0.5 45.4706V5.23529C0.5 2.61754 2.63279 0.5 5.25806 0.5H62.7419C65.3672 0.5 67.5 2.61754 67.5 5.23529V45.4706C67.5 48.0883 65.3672 50.2059 62.7419 50.2059ZM5.25806 2.55882H62.7419C64.2321 2.55882 65.4355 3.75964 65.4355 5.23529V45.4706C65.4355 46.9462 64.2321 48.1471 62.7419 48.1471H5.25806C3.76793 48.1471 2.56452 46.9462 2.56452 45.4706V5.23529C2.56452 3.75964 3.76793 2.55882 5.25806 2.55882ZM14.6969 50.9908C15.2018 50.4885 15.8872 50.2059 16.6025 50.2059H51.3976C52.1128 50.2059 52.7982 50.4885 53.3031 50.9908L55.7667 53.4412H12.2333L14.6969 50.9908Z" fill="#75797B"/>
+                                                        </svg>
+
+                                                        <div class="device-manage__label">
+                                                            <div class="device-manage__status">
+                                                                <img src="./img/icons/cross.svg" alt="" class="cross">
+                                                                <img src="./img/icons/bird.svg" alt="" class="bird">                                                                                                                         
+                                                            </div>
+                                                            <span class="device-manage__num">№0540</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="device-manage__body">
+                                                    <h4 class="device-manage__title">Финансовый отдел</h4>
+                                                    <button class="device-manage__active-btn">Активировать защиту</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="workflow__section-content">Content 3</div>
+                                <div class="workflow__section-content">Content 4</div>
+                            </div>
+                        </div>
                         <div class="desk-tasks" data-aos="fade-up" data-aos-offset="20" data-aos-duration="800" data-aos-delay="150">
                             <div class="desk-tasks__wrapper desk__part">
                                 <h3 class="desk-tasks__title">Задача</h3>
+                                <div class="desk-tasks__list">
+                                    <div class="desk-tasks__task">
+                                        <div class="desk-tasks__task-marker"></div>
+                                        <div class="desk-tasks__task-text">Проверьте протокол безопасности сети</div>
+                                    </div>
+                                    <div class="desk-tasks__task">
+                                        <div class="desk-tasks__task-marker"></div>
+                                        <div class="desk-tasks__task-text">Активируйте защиту рабочих станций</div>
+                                    </div>
+                                    <div class="desk-tasks__task">
+                                        <div class="desk-tasks__task-marker"></div>
+                                        <div class="desk-tasks__task-text">Обновите антивирус</div>
+                                    </div>
+                                    <div class="desk-tasks__task">
+                                        <div class="desk-tasks__task-marker"></div>
+                                        <div class="desk-tasks__task-text">Актуализируйте учётные записи сотрудников</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -128,5 +367,6 @@
         AOS.init();
     </script>
     <script src="./js/steps.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 </html>
