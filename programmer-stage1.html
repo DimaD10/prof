@@ -60,7 +60,7 @@
                             </div>
                             <div class="desk-todo__main">
                                 <div class="todo-steps">
-                                    <div class="todo-steps__step todo-steps__step_active todo-steps__step_current">
+                                    <div class="todo-steps__step todo-steps__step_active">
                                         <span class="todo-steps__title">Протокол безопасности</span>
                                         <span class="todo-steps__num">1</span>
                                     </div>
@@ -96,9 +96,9 @@
                                         <span class="todo-steps__title">Удаленная установка</span>
                                         <span class="todo-steps__num">0</span>
                                     </div>
-                                    <div class="todo-steps__step todo-steps__step_active">
+                                    <div class="todo-steps__step todo-steps__step_active todo-steps__step_current">
                                         <span class="todo-steps__title">Учетные записи</span>
-                                        <span class="todo-steps__num">4</span>
+                                        <span class="todo-steps__num" id="accounts-non-checked">0</span>
                                     </div>
                                     <div class="todo-steps__step">
                                         <span class="todo-steps__title">Сертификаты</span>
@@ -358,7 +358,7 @@
                                         </p>
                                         <div class="antivirus__buttons">
                                             <button class="antivirus__button button button_active button-finish-antivirus" data-step="finish">Обновить сейчас</button>
-                                            <button class="antivirus__button button button_active button_low-priority">Обновить позже</button>
+                                            <button class="antivirus__button button button_active button_low-priority" data-step="incorrect">Обновить позже</button>
                                         </div>
 
                                         <div class="antivirus-protect">
@@ -409,6 +409,173 @@
                                         <h2 class="workflow__title">
                                             Учетные записи
                                         </h2>
+                                        <div class="accounts__label">Пароль необходимо обновлять <span>каждые 3 месяца</span></div>
+
+                                        <div class="accounts-cards">
+                                            <div class="accounts-card accounts-card_active" data-correct="1">
+                                                <div class="accounts-card__body">
+                                                    <div class="accounts-card__info">
+                                                        <span class="accounts-card__num">Сотрудник №5</span>
+
+                                                        <span class="accounts-card__name">Фролов Степан Сергеевич</span>
+                                                        
+                                                        <div class="accounts-card__field">
+                                                            <span class="accounts-card__filed-title">Должность</span>
+                                                            <span class="accounts-card__filed-value">Руководитель отдела</span>
+                                                        </div>
+
+                                                        <div class="accounts-card__field">
+                                                            <span class="accounts-card__filed-title">Подразделение</span>
+                                                            <span class="accounts-card__filed-value">Отдел аналитики</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="accounts-card__preview">
+                                                        <img src="./img/accounts-card/img5.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="accounts-card__bottom">
+                                                    <div class="accounts-card__field">
+                                                        <span class="accounts-card__filed-title">Данные о пароле</span>
+                                                        <span class="accounts-card__filed-value accounts-card__filed-value_red">Обновлялись 4 месяца назад</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accounts-card accounts-card_active" data-correct="0">
+                                                <div class="accounts-card__body">
+                                                    <div class="accounts-card__info">
+                                                        <span class="accounts-card__num">Сотрудник №4</span>
+
+                                                        <span class="accounts-card__name">Петров Артем Анатольевич</span>
+                                                        
+                                                        <div class="accounts-card__field">
+                                                            <span class="accounts-card__filed-title">Должность</span>
+                                                            <span class="accounts-card__filed-value accounts-card__filed-value_red">Уволен</span>
+                                                        </div>
+
+                                                        <div class="accounts-card__field">
+                                                            <span class="accounts-card__filed-title">Подразделение</span>
+                                                            <span class="accounts-card__filed-value">Отдел продаж</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="accounts-card__preview">
+                                                        <img src="./img/accounts-card/img4.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="accounts-card__bottom">
+                                                    <div class="accounts-card__field">
+                                                        <span class="accounts-card__filed-title">Данные о пароле</span>
+                                                        <span class="accounts-card__filed-value">Обновлялись 3 недели назад</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accounts-card accounts-card_active" data-correct="0">
+                                                <div class="accounts-card__body">
+                                                    <div class="accounts-card__info">
+                                                        <span class="accounts-card__num">Сотрудник №3</span>
+
+                                                        <span class="accounts-card__name">Константинова Мария Юрьевна</span>
+                                                        
+                                                        <div class="accounts-card__field">
+                                                            <span class="accounts-card__filed-title">Должность</span>
+                                                            <span class="accounts-card__filed-value accounts-card__filed-value_red">Уволена</span>
+                                                        </div>
+
+                                                        <div class="accounts-card__field">
+                                                            <span class="accounts-card__filed-title">Подразделение</span>
+                                                            <span class="accounts-card__filed-value">Отдел бухгалтерии</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="accounts-card__preview">
+                                                        <img src="./img/accounts-card/img3.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="accounts-card__bottom">
+                                                    <div class="accounts-card__field">
+                                                        <span class="accounts-card__filed-title">Данные о пароле</span>
+                                                        <span class="accounts-card__filed-value">Обновлялись 2 месяца назад</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accounts-card accounts-card_active accounts-card accounts-card_next" data-correct="2">
+                                                <div class="accounts-card__body">
+                                                    <div class="accounts-card__info">
+                                                        <span class="accounts-card__num">Сотрудник №2</span>
+
+                                                        <span class="accounts-card__name">Иванов Геннадий Алексеевич</span>
+                                                        
+                                                        <div class="accounts-card__field">
+                                                            <span class="accounts-card__filed-title">Должность</span>
+                                                            <span class="accounts-card__filed-value">Старший программист</span>
+                                                        </div>
+
+                                                        <div class="accounts-card__field">
+                                                            <span class="accounts-card__filed-title">Подразделение</span>
+                                                            <span class="accounts-card__filed-value">Отдел разработки</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="accounts-card__preview">
+                                                        <img src="./img/accounts-card/img2.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="accounts-card__bottom">
+                                                    <div class="accounts-card__field">
+                                                        <span class="accounts-card__filed-title">Данные о пароле</span>
+                                                        <span class="accounts-card__filed-value">Обновлялись неделю назад</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accounts-card accounts-card_active accounts-card_current" data-correct="1">
+                                                <div class="accounts-card__body">
+                                                    <div class="accounts-card__info">
+                                                        <span class="accounts-card__num">Сотрудник №1</span>
+
+                                                        <span class="accounts-card__name">Евстигнеева Анна Павловна</span>
+                                                        
+                                                        <div class="accounts-card__field">
+                                                            <span class="accounts-card__filed-title">Должность</span>
+                                                            <span class="accounts-card__filed-value">Менеджер по продажам</span>
+                                                        </div>
+
+                                                        <div class="accounts-card__field">
+                                                            <span class="accounts-card__filed-title">Подразделение</span>
+                                                            <span class="accounts-card__filed-value">Отдел продаж</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="accounts-card__preview">
+                                                        <img src="./img/accounts-card/img.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="accounts-card__bottom">
+                                                    <div class="accounts-card__field">
+                                                        <span class="accounts-card__filed-title">Данные о пароле</span>
+                                                        <span class="accounts-card__filed-value accounts-card__filed-value_red">Обновлялись более 2 лет назад</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accounts-answears">
+                                            <button class="accounts-answears__button accounts-answears__button_red">
+                                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26541 7L0 1.73459L1.73459 0L7 5.26541L12.2654 0L14 1.73459L8.73459 7L14 12.2654L12.2654 14L7 8.73459L1.73459 14L0 12.2654L5.26541 7Z" fill="#75797B"/>
+                                                </svg>  
+                                                <span>Отключить доступ</span>     
+                                            </button>
+                                            <button class="accounts-answears__button accounts-answears__button_blue">
+                                                <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="0.5" y="1" width="11" height="9" stroke="#0058AA"/>
+                                                    <path d="M0.856934 1.61133L5.99979 6.05577L11.1426 1.61133" stroke="#0058AA"/>
+                                                </svg>      
+                                                <span>Напомнить о смене пароля</span>                                         
+                                            </button>
+                                            <button class="accounts-answears__button accounts-answears__button_grey">      
+                                                <span>Пропустить</span>                                         
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -440,6 +607,35 @@
                 </div>
             </section>
         </main>
+
+        <div class="popup">
+            <div class="popup__icon"><img src="./img/icons/attention.svg" alt=""></div>
+            <div class="popup__info">
+                <div class="popup__header">
+                    <h3 class="popup__title">Ой, это неверный вариант!</h3>
+                    <button class="popup__close-btn">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26541 7L0 1.73459L1.73459 0L7 5.26541L12.2654 0L14 1.73459L8.73459 7L14 12.2654L12.2654 14L7 8.73459L1.73459 14L0 12.2654L5.26541 7Z" fill="#75797B"/>
+                        </svg>                            
+                    </button>
+                </div>
+                <p class="popup__paragraph">
+                    Если не знаете, какой вариант выбрать, загляните в справочник.
+                </p>
+            </div>
+        </div>
+
+        <div class="popup-finished">
+            <div class="popup-finished__info">
+                <div class="popup-finished__header">
+                    <h3 class="popup-finished__title">Прекрасная работа!</h3>
+                </div>
+                <p class="popup-finished__paragraph">
+                    Вы оперативно отреагировали на все ошибки и проблемы в системе безопасности. Но расслабляться рано, ведь киберпреступники не спят.
+                </p>
+            </div>
+            <a href="programmer-stage2.html" class="popup-finished__button">Далее</a>
+        </div>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
