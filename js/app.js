@@ -14,7 +14,6 @@ window.addEventListener('load', () => {
             finishStep();
         }
     
-        // для первого шага
         if (e.target.classList.contains('safety-protocol__button')) {
             e.target.classList.remove('button_active');
             e.target.classList.add('button_disabled');
@@ -32,6 +31,25 @@ window.addEventListener('load', () => {
         if (e.target.classList.contains('device-manage__active-btn')) {
             let parent = e.target.closest('.device-manage');
             activateProtection(parent, devicesCount)
+        }
+
+        if (e.target.classList.contains('button-finish-antivirus')) {
+            document.querySelector('.antivirus-alert_warn').style.display = 'none';
+            document.querySelector('.antivirus-alert_good').style.display = 'flex';
+            document.querySelector('.button_low-priority').style.display = 'none';
+
+            e.target.textContent = 'Антивирус обновлен';
+            e.target.classList.remove('button_active');
+            e.target.classList.add('button_disabled');
+
+            document.querySelector('.antivirus-upd').textContent = `Дата последнего обновления: сегодня`;
+            document.querySelector('.antivirus-upd-text').textContent = `Установлена актуальная версия антивируса`;
+
+            document.querySelectorAll('.warn-el').forEach(el => {
+                el.classList.remove('antivirus-protect__value_warn');
+                el.classList.add('antivirus-protect__value_good');
+                el.textContent = '[ 0 ]';
+            })
         }
     })
 })

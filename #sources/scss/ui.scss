@@ -90,4 +90,16 @@ h3 {
             box-shadow: -8px 8px 0px #C8CDD0;
         }
     }
+    &_low-priority {
+        border: 2px solid #C75E67;
+        border-radius: 8px;
+        background-color: $white;
+        box-shadow: none;
+        color: #C75E67;
+
+        &:hover {
+            box-shadow: none;
+            background-color: #FFE9E9;
+        }
+    }
 }

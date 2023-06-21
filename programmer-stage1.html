@@ -60,7 +60,7 @@
                             </div>
                             <div class="desk-todo__main">
                                 <div class="todo-steps">
-                                    <div class="todo-steps__step todo-steps__step_active todo-steps__step_current">
+                                    <div class="todo-steps__step todo-steps__step_active">
                                         <span class="todo-steps__title">Протокол безопасности</span>
                                         <span class="todo-steps__num">1</span>
                                     </div>
@@ -88,7 +88,7 @@
                                         <span class="todo-steps__title">Задачи</span>
                                         <span class="todo-steps__num">0</span>
                                     </div>
-                                    <div class="todo-steps__step todo-steps__step_active">
+                                    <div class="todo-steps__step todo-steps__step_active todo-steps__step_current">
                                         <span class="todo-steps__title">Антивирус</span>
                                         <span class="todo-steps__num">1</span>
                                     </div>
@@ -329,8 +329,82 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="workflow__section-content">Content 3</div>
-                                <div class="workflow__section-content">Content 4</div>
+                                <div class="workflow__section-content antivirus">
+                                    <div class="antivirus__wrapper">
+                                        <h2 class="workflow__title">
+                                            Антивирус
+                                        </h2>
+                                        <div class="antivirus-alert antivirus-alert_warn">
+                                            <div class="antivirus-alert__icon">
+                                                <img src="./img/icons/alert-warn.svg" alt="">
+                                            </div>
+                                            <p class="antivirus-alert__message">
+                                                Автоматическое обновление не было установлено,<br> безопасность систем под угрозой
+                                            </p>
+                                        </div>
+                                        <div class="antivirus-alert antivirus-alert_good">
+                                            <div class="antivirus-alert__icon">
+                                                <img src="./img/icons/alert-good.svg" alt="">
+                                            </div>
+                                            <p class="antivirus-alert__message">
+                                                Антивирус работает в штатном режиме, <br> проблемы не обнаружены
+                                            </p>
+                                        </div>
+                                        <p class="antivirus__paragraph antivirus-upd">
+                                            Дата последнего обновления: 3 дня назад
+                                        </p>
+                                        <p class="antivirus__paragraph antivirus-upd-text">
+                                            Доступно новое обновление!
+                                        </p>
+                                        <div class="antivirus__buttons">
+                                            <button class="antivirus__button button button_active button-finish-antivirus" data-step="finish">Обновить сейчас</button>
+                                            <button class="antivirus__button button button_active button_low-priority">Обновить позже</button>
+                                        </div>
+
+                                        <div class="antivirus-protect">
+                                            <h3 class="antivirus-protect__title">Состояние системы:</h3>
+                                            <div class="antivirus-protect__list">
+                                                <div class="antivirus-protect__field">
+                                                    <div class="antivirus-protect__icon">
+                                                        <img src="./img/antivirus-state/icon1.svg" alt="">
+                                                    </div>
+                                                    <div class="antivirus-protect__info">
+                                                        <h4 class="antivirus-protect__info-title">Потенциальные угрозы</h4>
+                                                        <span class="antivirus-protect__value warn-el antivirus-protect__value_warn">[ 4 ]</span>
+                                                    </div>
+                                                </div>
+                                                <div class="antivirus-protect__field">
+                                                    <div class="antivirus-protect__icon">
+                                                        <img src="./img/antivirus-state/icon2.svg" alt="">
+                                                    </div>
+                                                    <div class="antivirus-protect__info">
+                                                        <h4 class="antivirus-protect__info-title">Файлы на карантине</h4>
+                                                        <span class="antivirus-protect__value warn-el antivirus-protect__value_warn">[ 12 ]</span>
+                                                    </div>
+                                                </div>
+                                                <div class="antivirus-protect__field">
+                                                    <div class="antivirus-protect__icon">
+                                                        <img src="./img/antivirus-state/icon3.svg" alt="">
+                                                    </div>
+                                                    <div class="antivirus-protect__info">
+                                                        <h4 class="antivirus-protect__info-title">Обнаруженные вирусы</h4>
+                                                        <span class="antivirus-protect__value warn-el antivirus-protect__value_warn">[ 40 ]</span>
+                                                    </div>
+                                                </div>
+                                                <div class="antivirus-protect__field">
+                                                    <div class="antivirus-protect__icon">
+                                                        <img src="./img/antivirus-state/icon4.svg" alt="">
+                                                    </div>
+                                                    <div class="antivirus-protect__info">
+                                                        <h4 class="antivirus-protect__info-title">Компоненты защиты</h4>
+                                                        <span class="antivirus-protect__value">[ 14 ]</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="workflow__section-content ">Content 4</div>
                             </div>
                         </div>
                         <div class="desk-tasks" data-aos="fade-up" data-aos-offset="20" data-aos-duration="800" data-aos-delay="150">
