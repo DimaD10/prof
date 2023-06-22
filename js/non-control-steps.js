@@ -4,9 +4,20 @@ window.addEventListener('load', () => {
         document.querySelector('.desk-tasks__button').textContent = 'Продолжить';
         document.querySelector('.desk__wrapper').style.height = "auto";
     }
-    const popupMap = document.querySelector('.popup_map');
+    if (document.querySelector('.workflow__section-content_current').classList.contains('security-graph')) {
+        document.querySelector('.desk-tasks__button').style.display = 'none';
+        document.querySelector('.desk__wrapper').style.height = "100%";
+
+        document.querySelector('.desk').classList.remove('desk_stage2');
+        document.querySelector('.desk').classList.add('desk_grid-ip');
+    }
+    const popup = document.querySelector('.popup');
     const popupFinished = document.querySelector('.popup-finished');
     const dangerZones = document.querySelectorAll('.security-map__circle');
+
+    const stepsIp = document.querySelectorAll('.todo-steps__step');
+    const graphs = document.querySelectorAll('.security-graph__graph-section');
+    
     document.querySelector('.security-map-counter__total').textContent = dangerZones.length;
 
     document.addEventListener('click', e => {
@@ -43,14 +54,12 @@ window.addEventListener('load', () => {
                     document.querySelector('.desk__wrapper').style.height = "100%";
 
                     document.querySelector('.desk').classList.remove('desk_stage2');
+                    document.querySelector('.desk').classList.add('desk_grid-ip');
                 }
             }
         }
         if (e.target.dataset.step === 'incorrect') {
-            popupMap.classList.add('_opened');
-            window.setTimeout(() => {
-                popupMap.classList.add('clickable');
-            }, 5);
+            callPopup(popup)
         }
 
         if (e.target.classList.contains('security-center__answears-button')) {
@@ -100,30 +109,93 @@ window.addEventListener('load', () => {
                 document.querySelector('.desk-tasks__button').classList.add('button_active')            
             }
         }
+
+        if (e.target.closest('.todo-steps__step')) {
+            stepsIp.forEach(el => {
+                el.classList.remove('todo-steps__step_current')
+            })
+            e.target.closest('.todo-steps__step').classList.add('todo-steps__step_current')
+
+            let currentStep = document.querySelector('.todo-steps__step_current');
+            let points = [...document.querySelectorAll('.todo-steps__step_active')]
+            let elPos = points.indexOf(currentStep);
+
+            graphs.forEach(el => {
+                el.classList.remove('security-graph__graph-section_current');
+            })
+            graphs[elPos].classList.add('security-graph__graph-section_current')
+
+            if (document.querySelector('.security-graph__graph-section_current').classList.contains('security-graph__graph-section_finished')) {
+                document.querySelectorAll('.security-graph__answears-button').forEach(el => {
+                    el.classList.add('security-graph__answears-button_disabled')
+                })
+            } else {
+                document.querySelectorAll('.security-graph__answears-button').forEach(el => {
+                    el.classList.remove('security-graph__answears-button_disabled')
+                })
+            }
+        }
+        if (e.target.classList.contains('security-graph__answears-button')) {
+            let points = [...document.querySelectorAll('.security-graph__answears-button')]
+            let elPos = points.indexOf(e.target);
+
+            if (elPos === parseInt(document.querySelector('.todo-steps__step_current').dataset.correct)) {
+                document.querySelector('.todo-steps__step_current').classList.add('todo-steps__step_finished');
+                document.querySelector('.security-graph__graph-section_current').classList.add('security-graph__graph-section_finished');
+
+                document.querySelectorAll('.security-graph__answears-button').forEach(el => {
+                    el.classList.add('security-graph__answears-button_disabled')
+                })
+            } else {
+                callPopup(popup)
+            }
+
+            if (document.querySelectorAll('.todo-steps__step_finished').length === stepsIp.length) {
+                let currentStep = document.querySelector('.workflow__section-content_current');
+                let points = [...document.querySelectorAll('.workflow__section-content')];
+                let elPos = points.indexOf(currentStep);
+                document.querySelectorAll('.desk-tasks__task')[elPos].classList.add('desk-tasks__task_finished');
+                popupFinished.classList.add('_opened');
+            }
+        }
     })
 
     // for popup
     document.addEventListener('click', e => {
-        if (!e.target.closest('.popup_map') && !e.target.closest('.mistake') && popupMap.classList.contains('clickable') && popupMap.classList.contains('_opened')) {
-            popupMap.classList.remove('_opened');
-            popupMap.classList.remove('clickable');
+        if (!e.target.closest('.popup_map') && !e.target.closest('.mistake') && popup.classList.contains('clickable') && popup.classList.contains('_opened')) {
+            popup.classList.remove('_opened');
+            window.setTimeout(() => {
+                popup.classList.remove('clickable');
+            }, 5);
         }
         if (e.target.closest('.popup__close-btn')) {
-            popupMap.classList.remove('_opened');
-            popupMap.classList.remove('clickable');
+            popup.classList.remove('_opened');
+            popup.classList.remove('clickable');
         }
     })
     // for popup
     document.addEventListener('keydown', function(event) {
-        if (popupMap.classList.contains('_opened')) {
+        if (popup.classList.contains('_opened')) {
             if (event.key == 'Escape') {
-                popupMap.classList.remove('_opened');
-                popupMap.classList.remove('clickable');
+                popup.classList.remove('_opened');
+                popup.classList.remove('clickable');
             }
         }
     });
 })
 
+function callPopup(popup) {
+    if (document.querySelector('.workflow__section-content_current').classList.contains('security-map')) {
+        document.querySelector('.popup__title').textContent = 'Систему атакуют из других регионов!';
+    } else {
+        document.querySelector('.popup__title').textContent = 'Ой, это неверный вариант!';
+    }
+
+    popup.classList.add('_opened');
+    window.setTimeout(() => {
+        popup.classList.add('clickable');
+    }, 5);
+}
 
 function finishStep() {
     document.querySelector('.desk-tasks__button').classList.add('button_disabled')
